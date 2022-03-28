@@ -1,0 +1,24 @@
+<div id="<%= dom_id picture %>">
+  
+
+<table>
+  <thead>
+  <th>Author:</th>
+  <th>Width:</th>
+  <th>Height:</th>
+  <th>Picture:</th>
+  <th>Url:</th>
+  <th>Download url:</th>
+  </thead>
+  <tbody>
+    <tr style="border: 1px solid black;">
+      <td style="border: 1px solid black;"><%= picture.author %></td>
+      <td style="border: 1px solid black;"><%= picture.width %></td>
+      <td style="border: 1px solid black;"><%= picture.height %></td>
+      <td style="border: 1px solid black;"><img src="<%= picture.download_url %>" height="<%= picture.height/10 %>" width="<%= picture.width/10 %>"></td>
+      <td style="border: 1px solid black;"><%= picture.url %></td>
+      <td style="border: 1px solid black;"><%= picture.download_url %></td>
+    </tr>
+  </tbody>
+</table>
+</div>
