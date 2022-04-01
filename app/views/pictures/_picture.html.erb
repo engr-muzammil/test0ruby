@@ -1,24 +1,23 @@
-<div id="<%= dom_id picture %>">
+
   
 
-<table>
-  <thead>
-  <th>Author:</th>
-  <th>Width:</th>
-  <th>Height:</th>
-  <th>Picture:</th>
-  <th>Url:</th>
-  <th>Download url:</th>
-  </thead>
-  <tbody>
-    <tr style="border: 1px solid black;">
-      <td style="border: 1px solid black;"><%= picture.author %></td>
-      <td style="border: 1px solid black;"><%= picture.width %></td>
-      <td style="border: 1px solid black;"><%= picture.height %></td>
-      <td style="border: 1px solid black;"><img src="<%= picture.download_url %>" height="<%= picture.height/10 %>" width="<%= picture.width/10 %>"></td>
-      <td style="border: 1px solid black;"><%= picture.url %></td>
-      <td style="border: 1px solid black;"><%= picture.download_url %></td>
-    </tr>
-  </tbody>
-</table>
+
+          <div class="col-md-4 mb-4">
+            <div class="card">
+            <div id="<%= dom_id picture %>">
+              <img
+                src="<%= picture.download_url %>"
+                class="card-img-top"
+                alt="Waterfall"
+              />
+              <div class="card-body">
+                <h5 class="card-title"><%= picture.author %></h5>
+                <p class="card-text">
+                <%= link_to "Show this picture", picture %>
+                </p>
+                <a href="<%= picture.download_url %>" class="btn btn-primary">Open</a>
+              </div>
+            </div>
+          
+      </div>
 </div>
