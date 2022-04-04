@@ -4,4 +4,19 @@
     max-width: 330px;
     padding: 15px;
     margin: auto;
+    text-align: center!important;
+ }
+ body {
+   background-image: url('/assets/background-image.png');
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: center;
+ }
+ .fa {
+   cursor: pointer;
+   user-select:none ;
+ }
+ 
+ .fa:hover {
+   opacity: 0.5;
  }

@@ -5,6 +5,23 @@ class PicturesController < ApplicationController
   def index
     @pictures = Picture.all
   end
+  # POST  /pictures/search
+  def search
+    @pictures = Picture.where('author ilike ? or url ilike ?', "%#{params[:query]}%", "%#{params[:query]}%")
+
+    respond_to do |format|
+        format.turbo_stream do
+            render turbo_stream: [turbo_stream.replace(
+                'picture',
+                partial: 'picture',
+                locals: {
+                    pictures: @pictures
+                }
+            )]
+        end
+    end
+    
+  end
 
   # GET /pictures/1 or /pictures/1.json
   def show
