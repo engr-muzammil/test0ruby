@@ -1,0 +1,29 @@
+<main class="form-signin">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <img class="mb-4" src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+  <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+  <div class="form-floating mb-2">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "floatingInput", placeholder: "name@example.com" %>
+      <label for="floatingInput"><%= f.label :email %></label>
+  </div>
+  <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+  <% end %><br />
+  <div class="form-floating mb-2">
+  
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control", id: "floatingPassword", placeholder: "Password" %>
+    <label for="floatingPassword"><%= f.label :password %></label>
+  </div>
+  <div class="form-floating mb-2">
+  
+  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", id: "floatingPassword", placeholder: "Password" %>
+  <label for="floatingPassword"><%= f.label :password_confirmation %></label>
+</div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" , class: "w-100 btn btn-lg btn-primary" %>
+  </div>
+<% end %>
+</main>
+<%= render "devise/shared/links" %>
