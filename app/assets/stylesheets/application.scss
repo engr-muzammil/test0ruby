@@ -20,3 +20,10 @@
  .fa:hover {
    opacity: 0.5;
  }
+
+.c { position: relative; }
+.c img { display: block; }
+.c .fa-refresh { position: absolute; top:5px; right:5px; }
+.c .fa-refresh:hover { 
+  color: white;
+ }

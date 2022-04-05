@@ -1,10 +1,16 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: %i[ favourite show edit update destroy ]
+  before_action :set_picture, only: %i[ refresh favourite show edit update destroy ]
   before_action :authenticate_user!
   # GET /pictures or /pictures.json
   def index
     @pictures = Picture.all
   end
+
+  def refresh
+    RefreshImageJob.perform_async(@picture.id)
+    head :ok
+  end
+
   # POST  /pictures/search
   def search
     @pictures = Picture.where('author ilike ? or url ilike ?', "%#{params[:query]}%", "%#{params[:query]}%")
@@ -25,8 +31,6 @@ class PicturesController < ApplicationController
 
   # GET /picture/favourite
   def favourite
-    puts 'test data'
-    puts @picture
     respond_to do |format|
       if @picture.update(favourite: !@picture.favourite)
         format.html { redirect_to picture_url(@picture)}

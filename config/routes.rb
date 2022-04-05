@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'    
   
 
   root "pictures#index"
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   resources :pictures do
     post "search"
     get "favourite", on: :member
+    get "refresh", on: :member
   end
 
   get "welcome/index"
