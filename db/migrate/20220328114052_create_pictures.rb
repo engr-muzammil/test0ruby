@@ -6,6 +6,7 @@ class CreatePictures < ActiveRecord::Migration[7.0]
       t.integer :height
       t.text :url
       t.text :download_url
+      t.boolean :favourite, default: false, null: false
 
       t.timestamps
     end

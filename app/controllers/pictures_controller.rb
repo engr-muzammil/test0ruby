@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: %i[ show edit update destroy ]
+  before_action :set_picture, only: %i[ favourite show edit update destroy ]
   before_action :authenticate_user!
   # GET /pictures or /pictures.json
   def index
@@ -21,6 +21,21 @@ class PicturesController < ApplicationController
         end
     end
     
+  end
+
+  # GET /picture/favourite
+  def favourite
+    puts 'test data'
+    puts @picture
+    respond_to do |format|
+      if @picture.update(favourite: !@picture.favourite)
+        format.html { redirect_to picture_url(@picture)}
+        format.json { render :show, status: :ok, location: @picture }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @picture.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # GET /pictures/1 or /pictures/1.json

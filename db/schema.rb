@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_01_134918) do
     t.integer "height"
     t.text "url"
     t.text "download_url"
+    t.boolean "favourite", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

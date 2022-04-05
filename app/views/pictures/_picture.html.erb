@@ -2,25 +2,7 @@
  <%= turbo_frame_tag "picture" do %>
   <div class="row">
 <% pictures.each do |picture| %>
-          <div class="col-md-4 mb-4">
-            <div class="card">
-            <div id="<%= dom_id picture %>">
-              <img
-                src="<%= picture.download_url %>"
-                class="card-img-top"
-                alt="Waterfall"
-              />
-              <div class="card-body">
-                <h5 class="card-title"><%= picture.author %> <i class="float-end fa fa-heart-o"></i> </h5>
-                <p class="card-text">
-                <%= link_to "Show this picture", pictures_path %>
-                </p>
-                <a href="<%= picture.download_url %>" class="btn btn-primary">Open</a>
-              </div>
-            </div>
-          
-      </div>
-</div>
+  <%= render 'card', picture: picture %>
 <% end %>
 </div>
 <% end %>
